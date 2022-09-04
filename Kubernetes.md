@@ -24,38 +24,49 @@
     -   Kube Proxy:
         -   For the communication b/w pods for example backend api to DB call handled through kube proxy.
         -   It will reduce the complexity for multiple replicas it's will forward the request with in same node if available.
+##### Pod:
+* Smallest unit of K8s is pod.
+* Our Appliations are deployed as a container and Pod is a abstraction of container.
+* 1 Pod will contain 1 application.
+* Each pod will have connected with it's internal IP address.
 
 #### K8s Components: [Helping tutorial](https://www.youtube.com/watch?v=ivDzqrCfC2Y)
 
-##### Config Map:
-* External Configurations/runtime arguments of application.
-##### Secret:
-* It's an other map to store password in base64 encoded format.
-* So it's contain credentials 
-
-##### Ingres:
-* For public IP's or url first request will go to ingress
-* Then it will go to service.
-
-##### Service:
+##### Service (svc):
+* It's a abstract layer of Pod.
+* We need to create service component for each pod because whenever pods are create or after destory again created it will have new intenal IP address.
+* For exposing Pod we need Service component so that pod will be accible even after destory cycle. Because other application will access pod with Service endpoint not WRT IP.
+* Both Service and pod have it's own lifecycle even if pod destory service remain there. 
 * It's having two funtionality:
     -   Permanent IP    (if pods restarted/created again other api will not face any issue)
-    -   Load balancer   (If one pods goes down request automatically will be redirected to an other pod)
+    -   By default all service components are Load balanced (If one pods goes down request automatically will be redirected to an other pod)
 * In K8s we have two type of services 
-    -   External Service
-    -   Internal Service
-
+    -   External Service (Accible outside k8s cluster like Rest APP pod)
+    -   Internal Service (Accible only within k8s cluster like DB pod)
+##### Ingres (ing):
+* It's a abstract layer for service component, to resolve domain name into IP
+* For public IP's or domain name, first request will go to ingress component.
+* Then it will go to service and then after to Pod (application).
+##### ConfigMap (cm):
+* External Configurations/runtime arguments of application will be store in configmap.
+* So that we can avoid redeployments of application if any configuration changed
+##### Secret:
+* It's an other map to store private credentials in base64 encoded format.
+##### Volume (vol):
+* If Database pods get restart or destored and created again in this case data will be lost.
+* For that we need to use Volumes to persist data for long time.
+* It basically attached local/physical/cloud storage of hardrive for DB pod.
 ##### Deployment:
+* As Pod is a abstraction of container same way deployment is a abstraction for entire application.
 * Whenever pod goes down another pod or replica of pod will be up this is handled by deployment.
+* In short to achieve application high avaiability & scallibility we need deployment component.
+* We can have all the configurations (svc, ing, vol, pod, ...) in deployment component.
 
 ##### StatefulSet:
 * For Statful applications or specailly DBs also need replica will be up if DB pod goes down and this is handled by statefulSet.
-* This is required for Stateful app becauses stateful apps need to be persist data through VOLUME. 
+* This is required for Stateful app becauses stateful apps need to be persist data through VOLUME.
+* Specially DB data should be sync with other relicas.
 
-##### Volume:
-* If Database pods get restart then data will be gone.
-* For that we need to use Volumes to persist data for long time.
-* It basically attached local/physical/cloud storage of hardrive to DB pod.
 --------------------------------------------------------------------------------
 #### Production Cluster Setup
 ##### For test/Local Cluster setup:

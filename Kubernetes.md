@@ -25,7 +25,7 @@
         -   For the communication b/w pods for example backend api to DB call handled through kube proxy.
         -   It will reduce the complexity for multiple replicas it's will forward the request with in same node if available.
 
-#### K8s Components:
+#### K8s Components: [Helping tutorial](https://www.youtube.com/watch?v=ivDzqrCfC2Y)
 
 ##### Config Map:
 * External Configurations/runtime arguments of application.

@@ -1,11 +1,27 @@
-### Kubernetes:
-* It's a tool to manage multiple containers.
+### Why we need Kubernetes (K8s):
+##### Traditional Deployment:
+* In traditional deployments we were deploying multiple apps on the server and we can't manage resources WRT app.
+* Similarly we can't mange do scale up and scale down dynamically WRT to our app requirements/need.
+![Traditional Deployments](/Traditional-Deployment.jpg)
+##### Virtualized Deployment:
+* To overcome this traditional deployment issue `Virtualized Deployment` came.
+* In this we can better use of our server resources but alot of layers added and alot of resource will be used by virtualized OS.
+* Similarly we can't mange do scale up and scale down dynamically WRT to our app requirements/need.
+![Virtualized Deployment](/Virtualized-Deployment.jpg)
+##### Container Deployment:
+* To Over come above deployment issues container deployment came. In this we can utilize much better resources.
+* We can handle container deployment on both server & cloud environment.
+* But it's very difficult to handle multiple containers and their life cycles so we need a tool to handle our containers so kubernetes come for the rescue.
+![Container Deployment](/Container-Deployment.jpg)
+### Kubernetes (K8s):
+* Kubernetes is a containers orchestration tool and developed by google.
 * Main responsibilities towards applications are:
     - High Availability (Means application don't have downtime)
     - Scalibility or high performance
     - Disaster Recovery (Backup and restore)
 * K8s have at least one Master Node and multiple worker nodes
 #### Kubernetes Architecture:
+![Architecture](/Kubernetes-Architecture.jpg)
 * It have two types of nodes.
 ##### Master Node:
 * It have 4 Processes:

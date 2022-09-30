@@ -59,6 +59,10 @@
 * In K8s we have two type of services 
     -   External Service (Accible outside k8s cluster like Rest APP pod)
     -   Internal Service (Accible only within k8s cluster like DB pod)
+* Types:
+    -   ClusterIP : `It's default type and It's accessible only within cluster level. No External trafic can communicate with this service.
+    -   NodePort  : `It's a extension of ClusterIP and it's allow external trafic to communicate with pod but with fixed port, it's not secure becuase we are opening service communication for externals. NodePort we need to mention in the service.yml and it's range is 30000 to 32767.
+    -   LoadBalancer: `It's a extension of NodePort and it's give better option to allow external trafic to access servic. When we create LoadBalancer service type then ClusterIP & NodePort Services will be created automatically. It's for native cloud platforms.
 ##### Ingres (ing):
 * It's a abstract layer for service component, to resolve domain name into IP
 * For public IP's or domain name, first request will go to ingress component.

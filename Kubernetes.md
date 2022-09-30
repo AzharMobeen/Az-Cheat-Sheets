@@ -109,6 +109,15 @@ kubectl create -h
 * we can't create pod directly, we can create only with the help of DEPLOYMENT component
 ######## CRUD Commands
 ```
+kubectl get nodes
+```
+```
+kubectl cluster-info
+```
+```
+kubectl get all
+```
+```
 kubectl create deployment deployment-name --image=dockerimage 
 ```
 ```
@@ -169,6 +178,10 @@ kubectl apply -f nginx-deployment.yaml
 ```
 ```
 kubectl delete -f nginx-deployment.yaml
+```
+######## It will deploy all the configuration files
+```
+kubectl apply -f ./
 ```
 - - - -
 ##### Configuration file details:

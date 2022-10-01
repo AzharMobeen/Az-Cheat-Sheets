@@ -183,6 +183,14 @@ kubectl delete -f nginx-deployment.yaml
 ```
 kubectl apply -f ./
 ```
+####### Check cluster pod is listning on provided port, after below command it will display listning port
+```
+kubectl get pod pod-name --template='{{(index (index .spec.containers 0).ports 0).containerPort}}'
+```
+####### Port forwarding to access pod from outside of cluster, `above command will share listning port`
+```
+kubectl port-forward pod-name 8080:8080
+```
 - - - -
 ##### Configuration file details:
 * All the components have 5 parts

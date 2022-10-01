@@ -107,7 +107,7 @@ kubectl create -h
 ```
 ####### Create deployment/Pod:
 * we can't create pod directly, we can create only with the help of DEPLOYMENT component
-######## CRUD Commands
+####### CRUD Commands
 ```
 kubectl get nodes
 ```
@@ -133,7 +133,7 @@ kubectl delete deployment mongo-depl
 ```
 * After above command both deployment and pod will be deleted as well.
 
-######## Status Commands for K8s components:
+####### Status Commands for K8s components:
 ```
 kubectl get pod
 ```
@@ -144,7 +144,7 @@ kubectl get services
 kubectl get deployment
 ```
 
-######## Debuging Commands:
+####### Debuging Commands:
 * We can check logs of any deployment by
 ```
 kubectl logs pod-name
@@ -156,7 +156,7 @@ kubectl logs pod-name
 kubectl describe pod mongo-depl
 ```
 - - - -
-###### Deployments through yaml files:
+####### Deployments through yaml files:
 * It's really hard to do deployment through command line parameter wise.
 * It's very easy to handle via yaml files
 ```
@@ -172,14 +172,14 @@ edit file
 ```
 vim nginx-deployment.yaml
 ```
-######## Configuration Commands:
+####### Configuration Commands:
 ```
 kubectl apply -f nginx-deployment.yaml
 ```
 ```
 kubectl delete -f nginx-deployment.yaml
 ```
-######## It will deploy all the configuration files
+####### It will deploy all the configuration files
 ```
 kubectl apply -f ./
 ```

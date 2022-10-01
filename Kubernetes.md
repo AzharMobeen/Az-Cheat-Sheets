@@ -105,9 +105,9 @@ create components (-h will provide help):
 ```
 kubectl create -h
 ```
-####### Create deployment/Pod:
+###### Create deployment/Pod:
 * we can't create pod directly, we can create only with the help of DEPLOYMENT component
-####### CRUD Commands
+###### CRUD Commands
 ```
 kubectl get nodes
 ```
@@ -133,7 +133,7 @@ kubectl delete deployment mongo-depl
 ```
 * After above command both deployment and pod will be deleted as well.
 
-####### Status Commands for K8s components:
+###### Status Commands for K8s components:
 ```
 kubectl get pod
 ```
@@ -156,7 +156,7 @@ kubectl logs pod-name
 kubectl describe pod mongo-depl
 ```
 - - - -
-####### Deployments through yaml files:
+###### Deployments through yaml files:
 * It's really hard to do deployment through command line parameter wise.
 * It's very easy to handle via yaml files
 ```
@@ -172,22 +172,22 @@ edit file
 ```
 vim nginx-deployment.yaml
 ```
-####### Configuration Commands:
+###### Configuration Commands:
 ```
 kubectl apply -f nginx-deployment.yaml
 ```
 ```
 kubectl delete -f nginx-deployment.yaml
 ```
-####### It will deploy all the configuration files
+###### It will deploy all the configuration files
 ```
 kubectl apply -f ./
 ```
-####### Check cluster pod is listning on provided port, after below command it will display listning port
+###### Check cluster pod is listning on provided port, after below command it will display listning port
 ```
 kubectl get pod pod-name --template='{{(index (index .spec.containers 0).ports 0).containerPort}}'
 ```
-####### Port forwarding to access pod from outside of cluster, `above command will share listning port`
+###### Port forwarding to access pod from outside of cluster, `above command will share listning port`
 ```
 kubectl port-forward pod-name 8080:8080
 ```

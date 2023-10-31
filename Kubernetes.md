@@ -136,6 +136,10 @@ kubectl delete deployment mongo-depl
 ```
 kubectl create deployment deployment-name --image=nginx --dry-run=client -o yaml
 ```
+* We can scale up/down with command as well:
+```
+kubectl scale deployment deployment-name --replicas=2
+```
 
 ###### Status Commands for K8s components:
 ```

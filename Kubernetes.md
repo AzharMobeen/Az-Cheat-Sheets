@@ -132,6 +132,10 @@ kubectl edit deployment nginx-depl
 kubectl delete deployment mongo-depl
 ```
 * After above command both deployment and pod will be deleted as well.
+* Create deployment/yml file through command:
+```
+kubectl create deployment deployment-name --image=nginx --dry-run=client -o yaml
+```
 
 ###### Status Commands for K8s components:
 ```

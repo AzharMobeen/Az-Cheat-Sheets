@@ -199,6 +199,14 @@ kubectl get pod pod-name --template='{{(index (index .spec.containers 0).ports 0
 ```
 kubectl port-forward pod-name 8080:8080
 ```
+
+###### Create Service with expose command:
+```
+kubectl expose deployment deployment-name --port 80 --target-port 8080
+```
+* In this `--port 80` is the exposing port and `--target-port` is the running pod port from deployment.yaml
+* Above command will create service of `deployment-name` pods
+
 - - - -
 ##### Configuration file details:
 * All the components have 5 parts

@@ -118,7 +118,7 @@ kubectl cluster-info
 kubectl get all
 ```
 ```
-kubectl create deployment deployment-name --image=dockerimage 
+kubectl create deployment deployment-name --image=dockerimage --replicas 3
 ```
 ```
 kubectl create deployment nginx-depl --image=nginx
